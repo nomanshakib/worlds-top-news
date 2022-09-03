@@ -45,7 +45,7 @@
             <div>
                 <div class="custom-title-color">
                     <ul id="news-categories"
-                        class="nav list-unstyled mx-auto shadow rounded-1 p-2 text-center justify-content-center py-4 my-4">
+                        class="nav list-unstyled mx-auto rounded-1 p-2 text-center justify-content-center py-4 my-4">
                     </ul>
                 </div>
             </div>
@@ -95,7 +95,46 @@
             </div>
         </div>
     </section>
-    <!----------------- Spinner Loading section Area started ------------------->
+    <!----------------- Spinner Loading section Area End ------------------->
+
+    <!----------- Error massage show for not found result started------------->
+    <section id="not-found" class="mt-5 d-none container">
+        <div class="alert alert-info d-flex align-items-center justify-content-center" role="alert">
+            <div class="fs-3 fw-bolder p-5">
+                404 Error - Not found!
+            </div>
+        </div>
+    </section>
+    <!----------- Error massage show for not found result end------------->
+
+    <!---------------- News Display Section Arae started ---------------->
+    <section class="container my-5">
+        <!-- <div id="news-container" class="row row-cols-1 row-cols-md-3 g-4"> -->
+        <div id="news-container" class="row row-cols-1 row-cols-md-1 row-cols-lg-1 row-cols-sm-1 g-4 ">
+        </div>
+    </section>
+    <!---------------- News Display Section Arae End ---------------->
+
+    <!------------ Modal for News more details Show Area Started ---------->
+    <section>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="news-modal" class="modal-body">
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------ Modal for News more details Show Area End ------------>
     
 
     <!-- -------- Bootstrap js CDN link ----------------- -->
