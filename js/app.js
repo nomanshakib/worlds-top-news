@@ -1,4 +1,4 @@
-// for category
+// for category set and Display
 const allCategoriesName = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     try {
@@ -149,3 +149,48 @@ const spinnerLoading = (isLoading) => {
     }
 };
 
+// Modal for Details show more
+const newsDetailsOnModal = async (_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${_id}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        // console.log(data.data[0]);
+        modalDetails(data.data[0]);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const modalDetails = (modalNews) => {
+    // console.log(modalNews);
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = modalNews.title ? modalNews.title : 'Not found';
+    const modalDetailsContainer = document.getElementById('news-modal');
+    modalDetailsContainer.textContent = '';
+    const modalDiv = document.createElement('div');
+    modalDiv.innerHTML = `
+    
+    <img src="${modalNews.image_url ? modalNews.image_url : 'Not found'
+        }" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Name: ${modalNews.author.name ? modalNews.author.name : 'Not found'
+        }</h5>
+        <p class="card-title"><b>Published Date:</b> ${modalNews.author.published_date
+            ? modalNews.author.published_date
+            : 'Not found'
+        }</p>
+        <p class="card-title"><b>Details:</b> ${modalNews.details ? modalNews.details : 'Not found'
+        }</p>
+        <p class="card-text"><b>Rating:</b> ${modalNews.rating.number ? modalNews.rating.number : 'Not found'
+        }</p>
+        <p class="card-text"><b>Views:</b> ${modalNews.total_view ? modalNews.total_view : 'Not found'
+        }</p>
+    </div>
+    
+    `;
+    modalDetailsContainer.appendChild(modalDiv);
+};
+
+loadAllNews('08')
+// newsDetailsOnModal();
